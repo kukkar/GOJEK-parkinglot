@@ -19,3 +19,17 @@ OR
 $ ./parking_lot abc.txt
 output....
 ```
+
+
+## ALLOWED COMMANDS
+
+```
+ CREATE_PARKING_LOT <numberOfslots> 
+ PARK <carNumber> <color> 
+ LEAVE <slotNumber> 
+ STATUS 
+ REGISTRATION_NUMBERS_FOR_CARS_WITH_COLOUR <colorOfCar>  
+ SLOT_NUMBERS_FOR_CARS_WITH_COLOUR <colorOfCar> 
+ SLOT_NUMBER_FOR_REGISTRATION_NUMBER <regNumber> 
+
+```

@@ -1,8 +1,8 @@
 package parkingLot
 
 import (
+	. "GOJEK-parkinglot/car"
 	"errors"
-	. "gojek_takehome/car"
 )
 
 // Declaration of Error Constants

@@ -1,15 +1,15 @@
 package parkingLot
 
 import (
+	"GOJEK-parkinglot/helpers"
 	"container/heap"
 	"errors"
 	"fmt"
-	"gojek_takehome/helpers"
 	"strconv"
 	"strings"
 	"sync"
 
-	. "gojek_takehome/car"
+	. "GOJEK-parkinglot/car"
 )
 
 // Singleton Implementation of ParkingLot. Hence we use this variable to store the Instance of Parking Lot

@@ -1,8 +1,8 @@
 package lib
 
 import (
+	"GOJEK-parkinglot/parkingLot"
 	"bytes"
-	"gojek_takehome/parkingLot"
 	"io"
 	"os"
 	"testing"
