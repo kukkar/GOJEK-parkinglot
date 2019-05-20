@@ -8,8 +8,6 @@ import (
 	"strings"
 
 	"GOJEK-parkinglot/parkingLot"
-
-	"github.com/fatih/color"
 )
 
 //map of allowed commands along with the arguments to read
@@ -32,7 +30,6 @@ var argumentsErrors = map[string]error{
 	"slot_numbers_for_cars_with_colour":         fmt.Errorf("Provide color to get slot number"),
 	"slot_number_for_registration_number":       fmt.Errorf("Provide registration Number to get slot Number"),
 }
-var red = color.New(color.FgRed).PrintfFunc()
 
 const (
 	UNSUPPORTED_COMMAND           = "Unsupported Command"
@@ -48,7 +45,7 @@ func processCommand(command string) error {
 	arguments := []string{}
 	if lengthOfCommand < 1 {
 		err := errors.New(UNSUPPORTED_COMMAND)
-		red(err.Error())
+		fmt.Println(err.Error())
 		return err
 	} else if lengthOfCommand == 1 {
 		command = commandDelimited[0]
@@ -61,7 +58,7 @@ func processCommand(command string) error {
 	if numberOfArguments, exists := allowedCommands[command]; exists {
 
 		if len(arguments) != numberOfArguments {
-			red(argumentsErrors[command].Error())
+			fmt.Println(argumentsErrors[command].Error())
 			return argumentsErrors[command]
 		}
 
@@ -71,7 +68,7 @@ func processCommand(command string) error {
 		switch command {
 		case "create_parking_lot":
 			if numberOfSlots, err := strconv.Atoi(arguments[0]); err != nil {
-				red(err.Error())
+				fmt.Println(err.Error())
 				return err
 			} else {
 				return parkingLot.Initialize(numberOfSlots)
@@ -88,7 +85,7 @@ func processCommand(command string) error {
 
 		case "leave":
 			if slot, err := strconv.Atoi(arguments[0]); err != nil {
-				red(err.Error())
+				fmt.Println(err.Error())
 				return err
 			} else {
 				return w.do(func() error {
@@ -125,7 +122,7 @@ func processCommand(command string) error {
 		return errors.New("Not Reachable Code")
 	} else {
 		err := errors.New(UNSUPPORTED_COMMAND)
-		red(err.Error())
+		fmt.Println(err.Error())
 
 		return err
 	}
